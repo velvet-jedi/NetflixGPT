@@ -1,15 +1,8 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import Body from "./Components/Body";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <h1>NetflixGPT </h1>
-        
-    </>
-  )
+	return <Body></Body>;
 }
 
-export default App
+export default App;
