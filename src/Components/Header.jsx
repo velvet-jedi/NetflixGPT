@@ -2,10 +2,10 @@ import React from "react";
 
 const Header = () => {
 	return (
-		<div>
+		<div className="absolute z-20 px-8 p-6 bg-gradient-to-b from-black">
 			<img
-				className="h-24 ml-4"
-				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvDOGQ7f1-E_IHzkmRfsxJmKtHTdL49SenCQ&s"
+				className="w-44"
+				src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
 				alt="logo"
 			/>
 		</div>
