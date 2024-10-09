@@ -13,6 +13,7 @@
     -   Redux to store auth info
     -   useNavigate for redirecting
     -   useSelector
+    -   Return unsubscribe() from onAuthStateChanged to clean up the Firebase listener when the component unmounts.
 
     -   Header
     -   Trailer background
