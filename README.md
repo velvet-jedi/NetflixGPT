@@ -26,6 +26,7 @@
     -   Movie suggestions
     -   Firebase
     -   Authentication
+    -   Fetching from TMDB
 
 # Tech stack
 
