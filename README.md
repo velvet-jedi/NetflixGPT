@@ -1,10 +1,14 @@
 # Features
 
 -   Login
+
     -   login
     -   sign up
+    -   form input validation
     -   redirect to /browse
--   Browse (authenticated)
+    -   Browse (authenticated)
+    -   useRef to optimize performance
+    -   Concise error messages on logins
 
     -   Header
     -   Trailer background
