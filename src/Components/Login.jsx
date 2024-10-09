@@ -11,6 +11,7 @@ import {
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { HOME_BG, AVATAR } from "../utils/constants";
 
 const Login = () => {
 	const dispatch = useDispatch();
@@ -46,8 +47,7 @@ const Login = () => {
 						const user = userCredential.user;
 						updateProfile(user, {
 							displayName: nameRef.current.value,
-							photoURL:
-								"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLe5PABjXc17cjIMOibECLM7ppDwMmiDg6Dw&s",
+							photoURL: { AVATAR },
 						})
 							.then(() => {
 								// Profile updated!
@@ -100,7 +100,7 @@ const Login = () => {
 			<div className="absolute top-0 left-0 w-full h-full z-[-1]">
 				<img
 					className="w-full h-full object-cover"
-					src="https://assets.nflxext.com/ffe/siteui/vlv3/4d2c5849-b306-4884-9036-6211f7ee0178/web/IN-en-20240930-TRIFECTA-perspective_1e1ca6cd-9e2d-4e9d-9e4b-ba0c2d3a0e31_large.jpg"
+					src={HOME_BG}
 					alt="bg-image"
 				/>
 			</div>

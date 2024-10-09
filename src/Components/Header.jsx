@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
+import { LOGO } from "../utils/constants";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Header = () => {
 		<div className="absolute flex justify-between w-full z-20 px-8 p-6 bg-gradient-to-b from-black">
 			<img
 				className="w-44"
-				src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
+				src={LOGO}
 				alt="logo"
 			/>
 			{user && (

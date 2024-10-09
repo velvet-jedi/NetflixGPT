@@ -14,6 +14,9 @@
     -   useNavigate for redirecting
     -   useSelector
     -   Return unsubscribe() from onAuthStateChanged to clean up the Firebase listener when the component unmounts.
+    -   Scalability:
+
+        -   Single constants file
 
     -   Header
     -   Trailer background
