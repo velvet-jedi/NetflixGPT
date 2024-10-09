@@ -11,6 +11,7 @@
     -   Concise error messages on logins
     -   Firebase sign in sign up user management
     -   Redux to store auth info
+    -   useNavigate for redirecting
 
     -   Header
     -   Trailer background
