@@ -7,9 +7,13 @@ const MainBrowseContainer = () => {
 	const movies = useSelector((store) => store.movies?.nowPlayingMovies);
 	if (movies === null) return;
 	const mainMovie = movies[0];
+	const { original_title, overview } = mainMovie;
 	return (
 		<div>
-			<VideoTitle></VideoTitle>
+			<VideoTitle
+				title={original_title}
+				overview={overview}
+			></VideoTitle>
 			<VideoBackground movie={mainMovie} />
 		</div>
 	);

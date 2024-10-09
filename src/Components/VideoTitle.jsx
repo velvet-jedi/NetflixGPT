@@ -1,24 +1,18 @@
 import React from "react";
 
-const VideoTitle = () => {
+const VideoTitle = ({ title, overview }) => {
 	return (
-		<div>
-			VideoTitle
-			{/* <button>
-				{" "}
-				<img
-					src="https://icons.veryicon.com/png/o/miscellaneous/winsion/play-button-6.png"
-					alt="play"
-				/>
-				Play
-			</button>
-			<button>
-				<img
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY5u61Ich2-HvGRBe3hj043ILiPKh6HlmGrw&s"
-					alt=""
-				/>
-				More info
-			</button> */}
+		<div className="pt-36 px-12">
+			<h1 className="font-bold text-6xl">{title}</h1>
+			<p className="py-6 text-lg w-1/4">{overview}</p>
+			<div className="">
+				<button className="bg-slate-400 p-4 px-12 mx-4 text-xl text-white bg-opacity-50 rounded">
+					▶️ Play
+				</button>
+				<button className="bg-slate-400 p-4 px-12 mx-4 text-xl text-white bg-opacity-50 rounded">
+					More info
+				</button>
+			</div>
 		</div>
 	);
 };
