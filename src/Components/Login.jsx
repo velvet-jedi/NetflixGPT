@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { validateData } from "../utils/validate";
+import { auth } from "../utils/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true);
@@ -16,8 +18,8 @@ const Login = () => {
 	const passwordInputRef = useRef(null);
 
 	const handleClick = (e) => {
-		console.log(emailInputRef.current.value);
-		console.log(passwordInputRef.current.value);
+		// console.log(emailInputRef.current.value);
+		// console.log(passwordInputRef.current.value);
 
 		e.preventDefault();
 		setError(
@@ -26,6 +28,27 @@ const Login = () => {
 				passwordInputRef.current.value
 			)
 		);
+		if (error !== "") {
+			if (!isSignInForm) {
+				// sign up
+				createUserWithEmailAndPassword(
+					auth,
+					emailInputRef.current.value,
+					passwordInputRef.current.value
+				)
+					.then((userCredential) => {
+						const user = userCredential.user;
+						// console.log(user);
+					})
+					.catch((error) => {
+						const errorCode = error.code;
+						const errorMessage = error.message;
+						setError(errorCode + "-" + errorMessage);
+					});
+			} else {
+				// sign in
+			}
+		}
 	};
 
 	return (
@@ -47,9 +70,9 @@ const Login = () => {
 					{!isSignInForm && (
 						<input
 							type="text"
-							className="px-4 background-tint  border-gray-500 border py-4 m-2 rounded"
+							className="px-4 background-tint  text-white border-gray-500 border py-4 m-2 rounded"
 							placeholder="Full name"
-							reuired
+							required
 						/>
 					)}
 					<input
@@ -63,11 +86,11 @@ const Login = () => {
 						type="password"
 						ref={passwordInputRef}
 						placeholder="Password"
-						className="background-tint text-white px-4 py-4 m-2   border-gray-500 border rounded"
+						className="px-4 background-tint text-white border-gray-500 border py-4 m-2  rounded"
 						required
 					/>
 					<p className="text-red-400 text-xl font-bold italic">
-						! {error}
+						{error}
 					</p>
 					<button
 						className="rounded bg-red-700 p-2 mx-2 py-4 mt-6 text-white"

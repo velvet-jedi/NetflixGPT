@@ -20,6 +20,8 @@
     -   Search Bar
     -   OPENAI integration
     -   Movie suggestions
+    - Firebase 
+    - Authentication
 
 # Tech stack
 
