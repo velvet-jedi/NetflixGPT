@@ -9,6 +9,8 @@
     -   Browse (authenticated)
     -   useRef to optimize performance
     -   Concise error messages on logins
+    -   Firebase sign in sign up user management
+    -   Redux to store auth info
 
     -   Header
     -   Trailer background
@@ -20,8 +22,8 @@
     -   Search Bar
     -   OPENAI integration
     -   Movie suggestions
-    - Firebase 
-    - Authentication
+    -   Firebase
+    -   Authentication
 
 # Tech stack
 
