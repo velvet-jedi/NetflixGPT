@@ -8,8 +8,12 @@ import {
 	signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
+	const dispatch = useDispatch();
 	const [isSignInForm, setIsSignInForm] = useState(true);
 	const navigate = useNavigate();
 	const [error, setError] = useState("");
@@ -18,6 +22,7 @@ const Login = () => {
 		setIsSignInForm(!isSignInForm);
 	};
 
+	const nameRef = useRef(null);
 	const emailInputRef = useRef(null);
 	const passwordInputRef = useRef(null);
 
@@ -42,6 +47,31 @@ const Login = () => {
 				)
 					.then((userCredential) => {
 						const user = userCredential.user;
+						updateProfile(user, {
+							displayName: nameRef.current.value,
+							photoURL:
+								"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLe5PABjXc17cjIMOibECLM7ppDwMmiDg6Dw&s",
+						})
+							.then(() => {
+								// Profile updated!
+								// ...
+								const { uid, email, displayName, photoURL } =
+									auth.currentUser;
+								dispatch(
+									addUser({
+										uid: uid,
+										email: email,
+										displayName: displayName,
+										photoURL: photoURL,
+									})
+								);
+								navigate("/browse");
+							})
+							.catch((error) => {
+								// An error occurred
+								// ...
+								setError(error.message);
+							});
 						navigate("/browse");
 
 						// console.log(user);
@@ -90,6 +120,7 @@ const Login = () => {
 					</h1>
 					{!isSignInForm && (
 						<input
+							ref={nameRef}
 							type="text"
 							className="px-4 background-tint  text-white border-gray-500 border py-4 m-2 rounded"
 							placeholder="Full name"
@@ -114,12 +145,13 @@ const Login = () => {
 						{error}
 					</p>
 					<button
-						className="rounded bg-red-700 p-2 mx-2 py-4 mt-6 text-white"
+						className="rounded bg-red-700 p-2 mx-2 py-4 mt-6 text-white active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
 						type="submit"
 						onClick={handleClick}
 					>
 						{isSignInForm ? "Sign In" : "Sign Up"}
 					</button>
+
 					<div className="text-white">
 						<p
 							className="cursor-pointer m-6"

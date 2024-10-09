@@ -12,6 +12,7 @@
     -   Firebase sign in sign up user management
     -   Redux to store auth info
     -   useNavigate for redirecting
+    -   useSelector
 
     -   Header
     -   Trailer background
