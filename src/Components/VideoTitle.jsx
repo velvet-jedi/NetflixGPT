@@ -1,6 +1,8 @@
 import React from "react";
 
 const VideoTitle = ({ title, overview }) => {
+
+
 	return (
 		<div className="pt-36 px-12">
 			<h1 className="font-bold text-6xl">{title}</h1>
