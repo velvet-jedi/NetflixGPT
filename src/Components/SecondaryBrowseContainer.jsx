@@ -17,7 +17,7 @@ const SecondaryBrowseContainer = () => {
 				></MovieList>
 				<MovieList
 					category={"Popular"}
-					movies={movies.nowPlayingMovies}
+					movies={movies.popularMovies}
 				></MovieList>
 				<MovieList
 					category={"Upcoming"}

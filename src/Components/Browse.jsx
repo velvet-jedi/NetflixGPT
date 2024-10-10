@@ -3,9 +3,11 @@ import Header from "./Header";
 import useNowPlaying from "../hooks/useNowPlaying";
 import MainBrowseContainer from "./MainBrowseContainer";
 import SecondaryBrowseContainer from "./SecondaryBrowseContainer";
+import usePopular from "../hooks/usePopular";
 
 const Browse = () => {
 	useNowPlaying();
+	usePopular();
 
 	return (
 		<div>
