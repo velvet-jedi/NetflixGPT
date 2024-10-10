@@ -22,7 +22,9 @@
     -   Modularity separation of concerns
     -   Trailer background
     -   title & description
+    -   custom hooks for playing main trailer and storing movie data to redux store
     -   movie by genres suggestions tiles
+    -   YouTube and TMDB apis
 
         -   horizontal scroll
 
