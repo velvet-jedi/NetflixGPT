@@ -2,7 +2,7 @@ import React from 'react'
 
 const SecondaryBrowseContainer = () => {
   return (
-    <div>SecondaryBrowseContainer</div>
+    <div></div>
   )
 }
 

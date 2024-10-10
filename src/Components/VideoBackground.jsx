@@ -9,15 +9,16 @@ const VideoBackground = () => {
 	}
 
 	return (
-		<div className="">
+		<div className="relative w-full h-0 pb-[56.25%]">
+			{" "}
 			{
 				<iframe
-					className="aspect-video"
-					width="1749"
-					height="648"
-					src={`https://www.youtube.com/embed/${trailerVideo.key}`} // Correct interpolation
+					className="absolute top-0 left-0 w-full h-full"
+					src={
+						`https://www.youtube.com/embed/${trailerVideo.key}` +
+						`?&autoplay=1&mute=1&vq=hd1080`
+					} // Correct interpolation
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowFullScreen
 				></iframe>
 			}
 		</div>
