@@ -11,33 +11,19 @@ const SecondaryBrowseContainer = () => {
 					category={"Now Playing"}
 					movies={movies.nowPlayingMovies}
 				></MovieList>
-				<MovieList
-					category={"Trending"}
-					movies={movies.nowPlayingMovies}
-				></MovieList>
+
 				<MovieList
 					category={"Popular"}
 					movies={movies.popularMovies}
 				></MovieList>
-				<MovieList
-					category={"Upcoming"}
-					movies={movies.nowPlayingMovies}
-				></MovieList>
-				<MovieList
-					category={"Horror"}
-					movies={movies.nowPlayingMovies}
-				></MovieList>
 			</div>
 		</div>
-		// popular
-		// nowplayinh
+
 		// trending
 		// comedy
 		// horror
 		// action
 		// drama
-		// documentary
-		//
 	);
 };
 

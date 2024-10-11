@@ -58,7 +58,10 @@ const Header = () => {
 				alt="logo"
 			/>
 			{user && (
-				<div className="flex gap-2">
+				<div className="flex gap-4 items-center">
+					<button className="py-2 px-4 bg-purple-800 my-2 text-white rounded-lg">
+						Search
+					</button>
 					<img
 						src={user?.photoURL}
 						alt="user"
