@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toggleGPTSearchView } from "../utils/GPTSlice";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -50,6 +51,10 @@ const Header = () => {
 			});
 	}
 
+	const handleSearchClick = () => {
+		dispatch(toggleGPTSearchView());
+	};
+
 	return (
 		<div className="absolute flex justify-between w-full z-30 px-8 p-6 bg-gradient-to-b from-black">
 			<img
@@ -59,7 +64,10 @@ const Header = () => {
 			/>
 			{user && (
 				<div className="flex gap-4 items-center">
-					<button className="py-2 px-4 bg-purple-800 my-2 text-white rounded-lg">
+					<button
+						className="py-2 px-4 bg-purple-800 my-2 text-white rounded-lg"
+						onClick={handleSearchClick}
+					>
 						Search
 					</button>
 					<img
