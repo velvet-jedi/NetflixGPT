@@ -16,7 +16,7 @@ const VideoBackground = () => {
 					className="absolute top-0 left-0 w-full h-full"
 					src={
 						`https://www.youtube.com/embed/${trailerVideo.key}` +
-						`?&autoplay=1&mute=1&vq=hd1080&loop=1`
+						`?&autoplay=1&mute=1&vq=hd1080&loop=1&playlist=${trailerVideo.key}`
 					} // Correct interpolation
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				></iframe>
