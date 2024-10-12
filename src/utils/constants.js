@@ -8,6 +8,8 @@ export const AVATAR =
 export const TMDB_API_KEY = "90cd1012a7615fd6a1d251bf0abe7551"
 export const TMDB_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGNkMTAxMmE3NjE1ZmQ2YTFkMjUxYmYwYWJlNzU1MSIsIm5iZiI6MTcyODQ4NzY3OS41NzMxOTcsInN1YiI6IjY3MDZhMDEwNTk3YzEyNmYwN2RkZDUzNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VW9tszLI40fFIwX7hcY_XhzLpa2PUg_jomI2yepM2T4"
 
+export const TMDB_SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?query=';
+
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
