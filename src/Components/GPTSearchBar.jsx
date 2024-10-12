@@ -46,7 +46,6 @@ const GPTSearchBar = () => {
 		setTmdbResults([]);
 
 		try {
-			// Get movie recommendations from Gemini
 			const query = `Given the preference "${userPreference}", suggest 5 movies. Provide only the movie titles separated by commas, without any additional text.`;
 			const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 			const result = await model.generateContent(query);
@@ -57,10 +56,11 @@ const GPTSearchBar = () => {
 				.map((title) => title.trim());
 			setMovieTitles(titles);
 
-			// Fetch TMDB data for each movie title
-			const tmdbPromises = titles.map((title) => tmdbSearch(title));
-			const tmdbResults = await Promise.all(tmdbPromises);
+			const tmdbResults = await Promise.all(
+				titles.map((title) => tmdbSearch(title))
+			);
 			setTmdbResults(tmdbResults.filter(Boolean));
+
 			console.log(movieTitles);
 			console.log(tmdbResults);
 		} catch (error) {
@@ -92,34 +92,10 @@ const GPTSearchBar = () => {
 					{isLoading ? "Searching..." : "Search"}
 				</button>
 			</form>
-
 			{errorMessage && (
 				<div className="mt-4 text-red-500">{errorMessage}</div>
 			)}
-
 			{isLoading && <div className="mt-4">Loading...</div>}
-
-			{/* {movieTitles.length > 0 && (
-                <div className="mt-4">
-                    <h3 className="text-lg font-semibold">Recommended Movies:</h3>
-                    <ul className="mt-2">
-                        {movieTitles.map((title, index) => (
-                            <li key={index}>{title}</li>
-                        ))}
-                    </ul>
-                </div>
-            )} */}
-
-			{/* {tmdbResults.length > 0 && (
-                <div className="mt-4">
-                    <h3 className="text-lg font-semibold">TMDB Results:</h3>
-                    <ul className="mt-2">
-                        {tmdbResults.map((result, index) => (
-                            <li key={index}>{result.title} (Released: {result.release_date})</li>
-                        ))}
-                    </ul>
-                </div>
-            )} */}
 		</div>
 	);
 };
