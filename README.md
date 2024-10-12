@@ -32,8 +32,7 @@
 
 -   NetflixGPT
     -   Search Bar
-    -   OPENAI integration
-    -   Movie suggestions
+    -   GoogleGenerativeAI integration to suggest Movies
     -   Firebase
     -   Authentication
     -   Fetching from TMDB

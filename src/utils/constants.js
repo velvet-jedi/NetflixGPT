@@ -17,3 +17,6 @@ export const API_OPTIONS = {
 };
 
 export const IMAGE_CDN = "https://image.tmdb.org/t/p/w780/"
+
+
+export const GEMINI_API_KEY = "AIzaSyCQNXZGq8mqwpTiwqALDwX5Xf-MwPU0G90"
