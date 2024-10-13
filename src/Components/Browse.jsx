@@ -24,14 +24,6 @@ const Browse = () => {
 					<SecondaryBrowseContainer></SecondaryBrowseContainer>
 				</div>
 			)}
-
-			{/* {
-					maincontainer
-						mainvideo
-					second container
-						movielist api
-							cards flex
-			} */}
 		</div>
 	);
 };

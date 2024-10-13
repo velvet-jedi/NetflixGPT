@@ -44,6 +44,7 @@
     -   Authentication
     -   Fetching from TMDB
 -   Memoization of the data layer
+-   Lazy loading / dynamic imports
 
 # Tech stack
 
