@@ -5,8 +5,8 @@ export const AVATAR =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLe5PABjXc17cjIMOibECLM7ppDwMmiDg6Dw&s"
 
 
-export const TMDB_API_KEY = process.env.TMDB_API_KEY
-export const TMDB_ACCESS_TOKEN = process.env.TMDB_ACCESS_TOKEN
+export const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+export const TMDB_ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
 export const TMDB_SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?query=';
 
@@ -14,11 +14,11 @@ export const API_OPTIONS = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization: "Bearer " + process.env.TMDB_ACCESS_TOKEN
+        Authorization: "Bearer " + import.meta.env.TMDB_ACCESS_TOKEN
     }
 };
 
 export const IMAGE_CDN = "https://image.tmdb.org/t/p/w780/"
 
 
-export const GEMINI_API_KEY = process.env.GEMINI_API_KEY
+export const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;

@@ -37,6 +37,7 @@
     -   Firebase
     -   Authentication
     -   Fetching from TMDB
+-   Memoization of the data layer
 
 # Tech stack
 
