@@ -106,7 +106,7 @@ const Login = () => {
 			</div>
 
 			<div className="flex justify-center items-start pt-60 min-h-screen">
-				<form className="background-tint mt-4 w-2/5 rounded-3xl  p-8 flex flex-col">
+				<form className="background-tint mt-4 w-full md:w-2/5 rounded-3xl  p-8 flex flex-col">
 					<h1 className="text-white flex  font-bold text-4xl mb-6 pt-4">
 						{isSignInForm ? "Sign In" : "Sign Up"}
 					</h1>

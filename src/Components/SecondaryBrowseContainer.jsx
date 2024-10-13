@@ -6,7 +6,7 @@ const SecondaryBrowseContainer = () => {
 	const movies = useSelector((store) => store.movies);
 	return (
 		<div className="bg-gray-900 py-10">
-			<div className="-mt-72  z-20 relative">
+			<div className="mt-0 md:-mt-72  z-20 relative">
 				<MovieList
 					category={"Now Playing"}
 					movies={movies.nowPlayingMovies}
@@ -19,11 +19,6 @@ const SecondaryBrowseContainer = () => {
 			</div>
 		</div>
 
-		// trending
-		// comedy
-		// horror
-		// action
-		// drama
 	);
 };
 
