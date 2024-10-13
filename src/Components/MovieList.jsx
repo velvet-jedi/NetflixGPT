@@ -3,31 +3,30 @@ import MovieTile from "./MovieTile";
 
 const MovieList = ({ category, movies }) => {
 	// Log only if movies exist
-	if (movies) {
-		// console.log(movies);
-	} else {
-		console.log("Movies data is still loading");
+	if (!movies || !Array.isArray(movies) || movies.length === 0) {
+		return (
+			<div className="text-center text-white mt-4">
+				No movies available for {category}
+			</div>
+		);
 	}
+
 	return (
-		movies && (
-			<div className="px-20 py-0">
-				<h1 className="text-3xl text-white font-bold py-4">
-					{category}
-				</h1>
-				<div className="flex overflow-x-scroll">
-					<div className="flex">
-						{movies.map((movieCard) => (
-							<div
-								className="px-3"
-								key={movieCard.id}
-							>
-								<MovieTile poster={movieCard.poster_path} />
-							</div>
-						))}
-					</div>
+		<div className="px-10 ">
+			<h1 className="text-3xl text-white font-bold py-4">{category}</h1>
+			<div className="flex overflow-x-scroll">
+				<div className="flex">
+					{movies.map((movie) => (
+						<div
+							className="px-3"
+							key={movie.id}
+						>
+							<MovieTile poster={movie.poster_path} />
+						</div>
+					))}
 				</div>
 			</div>
-		)
+		</div>
 	);
 };
 

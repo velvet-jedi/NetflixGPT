@@ -6,7 +6,7 @@ import { HOME_BG } from "../utils/constants";
 const GPTSearch = () => {
 	return (
 		<div>
-			<div className="absolute">
+			<div className="fixed -z-10">
 				<img
 					className="w-full h-full object-cover"
 					src={HOME_BG}

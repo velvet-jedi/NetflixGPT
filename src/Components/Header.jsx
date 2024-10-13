@@ -56,7 +56,6 @@ const Header = () => {
 		const searchbar = document.getElementById("searchbar");
 		if (searchbar) {
 			console.log(document.getElementById("searchbar"));
-			console.log(search)
 		}
 	};
 

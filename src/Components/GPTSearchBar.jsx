@@ -59,17 +59,19 @@ const GPTSearchBar = () => {
 				.split(",")
 				.map((title) => title.trim());
 
-			// console.log(titles);
+			console.log(titles);
 
-			const tmdbDataArray = titles.map((title) => tmdbSearch(title));
-
-			const tmdbResults = await Promise.all(tmdbDataArray);
-			// console.log(tmdbResults);
+			const tmdbDataArray = await Promise.all(
+				titles.map((title) => tmdbSearch(title))
+			);
+			const validResults = tmdbDataArray.filter(result => result !== null);
 
 			dispatch(
 				addGptMovieResult({
-					movieNames: titles,
-					movieResults: tmdbResults,
+					movieNames: titles.filter(
+						(_, index) => validResults[index] !== null
+					),
+					movieResults: validResults,
 				})
 			);
 		} catch (error) {
