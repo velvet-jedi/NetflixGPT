@@ -59,12 +59,14 @@ const GPTSearchBar = () => {
 				.split(",")
 				.map((title) => title.trim());
 
-			console.log(titles);
+			// console.log(titles);
 
 			const tmdbDataArray = await Promise.all(
 				titles.map((title) => tmdbSearch(title))
 			);
-			const validResults = tmdbDataArray.filter(result => result !== null);
+			const validResults = tmdbDataArray.filter(
+				(result) => result !== null
+			);
 
 			dispatch(
 				addGptMovieResult({
