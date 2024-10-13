@@ -16,6 +16,7 @@
     -   Return unsubscribe() from onAuthStateChanged to clean up the Firebase listener when the component unmounts.
     -   Scalability:
 
+        -   Redux usage
         -   Single constants file
 
     -   Header

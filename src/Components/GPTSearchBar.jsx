@@ -5,13 +5,15 @@ import {
 	TMDB_SEARCH_URL,
 	GEMINI_API_KEY,
 } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addGptMovieResult } from "../utils/GPTSlice";
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 const GPTSearchBar = () => {
+	const dispatch = useDispatch();
 	const searchTextRef = useRef(null);
-	const [movieTitles, setMovieTitles] = useState([]);
-	const [tmdbResults, setTmdbResults] = useState([]);
+
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -42,27 +44,34 @@ const GPTSearchBar = () => {
 
 		setIsLoading(true);
 		setErrorMessage(null);
-		setMovieTitles([]);
-		setTmdbResults([]);
 
 		try {
 			const query = `Given the preference "${userPreference}", suggest 5 movies. Provide only the movie titles separated by commas, without any additional text.`;
 			const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
-			const result = await model.generateContent(query);
-			const response = await result.response;
+			const gptResults = await model.generateContent(query);
+			const response = gptResults?.response;
+			if (!response) {
+				throw new Error("No response from GPT.");
+			}
+
 			const titles = response
 				.text()
 				.split(",")
 				.map((title) => title.trim());
-			setMovieTitles(titles);
 
-			const tmdbResults = await Promise.all(
-				titles.map((title) => tmdbSearch(title))
+			// console.log(titles);
+
+			const tmdbDataArray = titles.map((title) => tmdbSearch(title));
+
+			const tmdbResults = await Promise.all(tmdbDataArray);
+			// console.log(tmdbResults);
+
+			dispatch(
+				addGptMovieResult({
+					movieNames: titles,
+					movieResults: tmdbResults,
+				})
 			);
-			setTmdbResults(tmdbResults.filter(Boolean));
-
-			console.log(movieTitles);
-			console.log(tmdbResults);
 		} catch (error) {
 			console.error("Error in search process:", error);
 			setErrorMessage("Something went wrong. Please try again.");
