@@ -5,8 +5,8 @@ export const AVATAR =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLe5PABjXc17cjIMOibECLM7ppDwMmiDg6Dw&s"
 
 
-export const TMDB_API_KEY = "90cd1012a7615fd6a1d251bf0abe7551"
-export const TMDB_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGNkMTAxMmE3NjE1ZmQ2YTFkMjUxYmYwYWJlNzU1MSIsIm5iZiI6MTcyODQ4NzY3OS41NzMxOTcsInN1YiI6IjY3MDZhMDEwNTk3YzEyNmYwN2RkZDUzNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VW9tszLI40fFIwX7hcY_XhzLpa2PUg_jomI2yepM2T4"
+export const TMDB_API_KEY = process.env.TMDB_API_KEY
+export const TMDB_ACCESS_TOKEN = process.env.TMDB_ACCESS_TOKEN
 
 export const TMDB_SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?query=';
 
@@ -14,11 +14,11 @@ export const API_OPTIONS = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGNkMTAxMmE3NjE1ZmQ2YTFkMjUxYmYwYWJlNzU1MSIsIm5iZiI6MTcyODQ4ODkxMi41MDcwOTcsInN1YiI6IjY3MDZhMDEwNTk3YzEyNmYwN2RkZDUzNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4_Vr8qhXB12bKlDLdIQRLIB5cy37hfoEc1urCNg1dC0'
+        Authorization: "Bearer " + process.env.TMDB_ACCESS_TOKEN
     }
 };
 
 export const IMAGE_CDN = "https://image.tmdb.org/t/p/w780/"
 
 
-export const GEMINI_API_KEY = "AIzaSyCQNXZGq8mqwpTiwqALDwX5Xf-MwPU0G90"
+export const GEMINI_API_KEY = process.env.GEMINI_API_KEY
