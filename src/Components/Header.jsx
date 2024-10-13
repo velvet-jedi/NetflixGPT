@@ -60,14 +60,14 @@ const Header = () => {
 	};
 
 	return (
-		<div className="absolute flex justify-between w-full z-30 px-8 p-6 bg-gradient-to-b from-black">
+		<div className="absolute flex justify-center flex-col md:flex-row md:justify-between w-full z-30 px-8 p-6 bg-gradient-to-b from-black">
 			<img
-				className="w-44"
+				className="w-44 mx-auto md:mx-0"
 				src={LOGO}
 				alt="logo"
 			/>
 			{user && (
-				<div className="flex gap-4 items-center">
+				<div className="flex gap-4 mx-auto md:mx-0 md:items-center">
 					<button
 						className="py-2 px-4 bg-purple-800 my-2 text-white rounded-lg"
 						onClick={handleSearchClick}

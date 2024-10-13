@@ -33,6 +33,8 @@
 
         -   horizontal scroll
 
+    -   Mobile responsive
+
     -   the movieSlice manages the state for movie data, including the currently playing movies and associated trailer videos. The MainBrowseContainer component retrieves the list of currently playing movies from the Redux store and uses a custom hook, useMovieTrailer, to fetch the trailer for the main movie and store it in the Redux state. The VideoBackground component then uses the trailerVideo from the Redux store to display the trailer in an iframe.
 
 -   NetflixGPT
