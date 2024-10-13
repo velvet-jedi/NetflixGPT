@@ -1,11 +1,12 @@
 import { addTrailerVideo } from "../utils/movieSlice";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 const useMovieTrailer = (movieID) => {
 	const dispatch = useDispatch();
 	// const [key, setKey] = useState(null); // State to hold the YouTube video key
+	const trailerVideo = useSelector((store) => store.movies.trailerVideo);
 	useEffect(() => {
 		const getTrailer = async () => {
 			if (!movieID) return;
@@ -23,7 +24,7 @@ const useMovieTrailer = (movieID) => {
 				console.error("Error fetching trailer:", error);
 			}
 		};
-
+		if (trailerVideo) return null;
 		getTrailer();
 	}, [movieID, dispatch]);
 };

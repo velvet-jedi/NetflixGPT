@@ -19,6 +19,10 @@
         -   Redux usage
         -   Single constants file
 
+-   Security:
+
+    -   Environment variables
+
     -   Header
     -   Modularity separation of concerns
     -   Trailer background
